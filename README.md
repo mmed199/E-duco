@@ -1,6 +1,5 @@
 # E-duco
-Site web e-learning
-
+Projet de fin d'étude. Équipe [MOUSSAOUI Mohamed, MOULIDA AbdelElah]
 <h1>Introduction</h1>
 
 <b>E-duco est le fruit d'un travail collaboratif pour un projet de fin d'études.</b>
