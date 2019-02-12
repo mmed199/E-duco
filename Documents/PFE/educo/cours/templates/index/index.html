@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<link href="https://fonts.googleapis.com/css?family=Zilla+Slab" rel="stylesheet">
+	<link rel="stylesheet" href="{% static "/index/CSS/styleSheet.css" %}">
+	<link rel="stylesheet" href="{% static "/index/CSS/cards.css" %}">
+	<link rel="stylesheet" href="{% static "/commun/footer.css" %}">
+	<link rel="stylesheet" href="{% static "/commun/animate.css" %}"> 
+	<script src="{% static "/commun/classie.js" %}"></script>
+	<script src="{% static "/commun/modernizr.custom.js" %}"></script>
+
+	<script src="http://code.jquery.com/jquery-1.7rc2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{% static "/index/jQuery/index.js" %}"></script>
+	<script> 
+	$(function() {
+				$('#ft-ft-sec').addClass('animated slideInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+					$(this).removeClass('animated slideInUp');});
+				  
+				 $('#sc-ft-sec').addClass('animated slideInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+					$(this).removeClass('animated slideInUp');});
+				  
+				$('#td-ft-sec').addClass('animated slideInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+					$(this).removeClass('animated slideInUp');});
+				  
+				$('#fr-ft-sec').addClass('animated slideInUp').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+					$(this).removeClass('animated slideInUp');});
+		
+							});
+		
+	$(window).scroll(function() {
+   var hT = $('#td-sec').offset().top,
+       hH = $('#td-sec').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+		console.log((hT-wH) , wS);
+   if (wS > (hT+hH-wH-200)){
+
+	   $('#s-div-td-sec').css({display:'block'});
+	   $('#s-div-td-sec').addClass('animated slideInUp');
+	   /*$('.td-text').addClass('animated zoomIn');
+	   $('.td-sous-titre').addClass('animated zoomIn');*/
+   }
+	});
+
+		$(window).scroll(function() {
+			var hT = $('#sc-sec').offset().top,
+				hH = $('#sc-sec').outerHeight(),
+				wH = $(window).height(),
+				wS = $(this).scrollTop();
+			console.log((hT-wH) , wS);
+	if (wS > (hT+hH-wH-200)){
+		
+		$('.card').css({display:'block'})
+		$('.card').addClass('animated flipInX')		
+	}
+		});
+	</script>
+	<title>Educ-o</title>
+	
+
+
+</head>
+<body >
+<!--
+	<header>
+		<a class="nav"  href="#">Donner des cours</a>
+		<a class="nav"  href="#">Cours</a>
+		<a class="nav"  href="#">Pour Business</a>
+		<input type="text" name="recherche" class="recherche-input" id="rech-in" placeholder="Recherche" size="50">
+		<a class="nav" id="inscri-link" href="#" >S'inscrire</a>
+		<a class="nav" id="conn-link" href="#">Se connecter</a>
+
+	</header>
+-->
+
+	<header>
+	
+	<ul class="navbar">
+		<li>
+			<a class="unique-lien" id="lien-menu" href="#" data-scroll = "home">Acceuil</a>
+		</li>
+		<li>
+			<a class="unique-lien" id="lien-menu" href="#" data-scroll = "about-us">Trouver des cours</a>
+		</li>
+		<li>
+			<a class="unique-lien" id="lien-menu" href="#" data-scroll = "services">Pourquoi s'inscrire</a>
+		</li>
+		<li>
+			<form action="{% url 'recherche'%}" method="post">
+ 				{% csrf_token %}
+				{{form.input_recherche}}    <input type="submit" value="Submit" style="display: none">
+				
+			</form>
+		</li>
+		<li>
+			<a id="lien-menu" class="unique-lien" href="{% url 'pre_inscription'%}" class="nav" id="inscri-link">S'inscrire</a>
+		</li>
+		<li>
+			<a class="unique-lien" id="lien-menu" class="nav" id="conn-link" href="/connexion">Se connecter</a>
+		</li>
+	</ul>
+	</header>
+	
+	<div id="home" class="block">
+	<section id="ft-sec">
+	<div id="f-div-ft-sec">
+	<span id="ft-ft-sec" >Le nouveaux site web e-learning</span>
+	<span id="sc-ft-sec" >Plus Simple, Plus Rapide</span>
+	<span id="td-ft-sec" >Avec plus de rapidité, Notre Site vous permet d'ameliorer vos competence depuis votre maison</span>
+	<span id="fr-ft-sec"> <!-- cours-ft-sec -->
+		<a id="cours-ft-sec"  class = "hvr-fade" href="/cours" >tous les cours...</a>
+	</span>
+		</div>
+	<div id="s-div-ft-sec">
+	<img src="{% static "/index/images/index/first_section_caractere.png" %}"  id="caractere">
+	</div>
+	</section>
+	</div>
+	
+	<div id="about-us" class="block">
+	<section id="sc-sec">		
+		<span id="titre-sc-sec">Meilleurs cours de la semaines:</span>
+		<div id="cours">
+		{% for c in cours %}
+		<div class="card">
+		<div class="img">
+		<img src="{% static "/index/images/index/angular.png" %}" class="img-card"> 	
+		</div>
+		
+		<div class="prix">
+				Moyen d'étoiles: {{c.ratings.get.average|floatformat:"-1"}}/5		</div>
+		
+		<div class="titre">
+			{{ c.formation_libelle }}
+		</div>
+		<div class="prof">
+			{{c.formation_proffeseur}} 
+		</div>
+		<div class="text categorie">
+			{{c.formation_categorie}}
+		</div>
+		<div class="text">
+			<br>
+			{{c.formation_bio|truncatewords:20}} 
+		</div>
+		<div class="plus"><a class="link-plus" href="#">Plus de details</a></div>
+			</div>
+		{% endfor %}
+		<!--
+		<div id="card-plus">
+			<img src="{% static "index/images/index/plus_signe.png"%}">
+		</div>  -->
+		</div>
+		</section></div>
+		
+	
+	<div id="services" class="block">
+	<!-- la troiseme section, affichage des raison pour s'inscrire -->
+	<section id="td-sec">
+	
+	<!-- a gauche , une image -->
+	<div id="f-div-td-sec" >
+	<a href="/cours">
+	<img src="{% static "index/images/index/second_section-caractere.png" %}" id="caractere2"></a>
+	</div>
+		
+
+	<!-- a droite , les textes -->
+	
+	<div id="s-div-td-sec">
+	
+	<!-- le titre -->
+	<span id="titre-td-sec">Pourquoi s'inscrire?</span>
+	<p>
+	
+	<!-- Sous Titres -->
+		<span class="td-sous-titre">Un Compte Unique</span>
+		
+	
+	<!-- Textes -->
+	<span class="td-text">
+		Grace a notre site , il n'a jamais ete aussi simple de trouver un professeur et des cours . des formation dans tous les domaines. Ainsi que vous pouvez jouer le role d'un Professeur.
+		</span>
+		
+		
+	<!-- Sous Titres -->	
+		<span class="td-sous-titre">Inscription Gratuite</span>
+		
+	<!-- Textes -->		
+	<span class="td-text">
+		Gérer vos annonces dans notre service. Trendy et Educpros et voyez ce que notre site vous recommande et propose .
+		</span>
+		
+	<!-- Sous Titres -->	
+
+		<span class="td-sous-titre">Et bien plus encore ...</span>
+		
+	<!-- Textes -->		
+
+	<span class="td-text">
+		Votre espace s'etoffera au fie du temps avec d'autres fonctionalite.<br> Restez connecte !
+		</span>
+	</p>
+	
+		</div>
+
+</section> </div>
+	
+			<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Company<span>logo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">aceuil</a>
+					·
+					<a href="{% url 'cours' %}">cours</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="mailto:educo.donotreply@gmail.com">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Educ-o &copy; 2018</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span> BP 473 Complexe universitaire Al Qods, </span> Oujda 60000</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+212 536 36 36 36</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:educo.donotreply@gmail.com">Educ-o support</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>nous?</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+	</body>
+
+</html>

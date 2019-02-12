@@ -1,0 +1,250 @@
+a , a:active , a:any-link{
+	text-decoration: none;
+	color: rgb(34, 49, 63);
+}
+
+body{
+	background-color: #f9f9f9;
+}
+
+
+section:nth-of-type(2){
+	padding: 10px;
+	display: flex;
+	padding-top: 40px;
+}
+
+#principale{
+	width: 100%;
+}
+#autre{
+	width: 30%;
+}
+textarea {
+   resize: none;
+}
+#cours{
+	padding: 10px 20px;
+
+}
+#cours_image{
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+#libelle{
+	font-weight: bold;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+#info{
+	font-size: 20px;
+}
+#categorie{
+	display: block;
+	color: grey;
+	margin-bottom: 10px;
+
+}
+#bio{
+	display: block;
+	margin:10px 0px;
+	padding: 10px 0px;
+	border-top: 1px solid #e1e1e1;
+}
+#prix{
+	color:green;
+	font-weight: bold;
+}
+
+#proffeseur{
+	display: flex;
+	padding: 10px 20px;
+	background-color: #fafafa;
+	border-top : 1px solid #e1e1e1;
+
+}
+#utilisateur_image{
+ /*   border-radius: 50%; */
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+#utilisateur,#formation_utilisateur{
+	font-weight: bold;
+	font-size: 20px;
+}
+#utis_bio{
+	display: block;
+	font-size: 17px;
+	color: grey;
+}
+#utis_statu{
+	font-size: 17px;
+	font-weight: 600;
+}
+#commentaire-form , #commentaire-list{
+	margin: 10px;
+}
+
+
+
+#rating{
+	display: flex;
+	align-items : center;
+}
+#rating div{
+	padding-right: 10px;
+}
+textarea{
+	color: #22313F;
+	font-size: 12pt; 
+	border: 1px solid grey;
+	border-radius: 10px;
+	outline: none;
+	background-repeat:no-repeat;
+}
+textarea{
+	padding: 5px;
+	margin-top: 10px;
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+input[type="submit"]
+{
+	font-family: monospace; 
+	font-size: 13.9pt; 
+	width: 200px; 
+	height: 38px; 
+	border: 1px solid #52B3D9; 
+	border-radius: 10px;
+	color: white;
+	background-color: #52B3D9;
+	outline: none;
+	display:inline-block;
+        }
+input[type="submit"]:hover
+{
+	background-color: #337ab7;
+	border: 1px solid #337ab7;
+}
+label[for="id_comment"]{
+	 color: #22313F; 
+     font-size: 14pt;
+	font-weight: bold;
+}
+.star-ratings-rating-average{
+	color: #58bfe0;
+	font-weight: bold;
+}
+
+.star-ratings-rating-count , .star-ratings-rating-user{
+	color:gray;
+}
+
+.cours_plus{
+	padding: 20px;
+}
+.cours_plus:hover{
+	background-color: #f9f9f9;
+}
+
+#autre{
+	height: 1100px;
+	margin: 10px;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.07);
+}
+#autre-titre{
+	padding: 10px;
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	border-bottom: 1px solid #f9f9f9;
+}
+.cours_libelle{
+	text-decoration:none;
+	font-weight: bold;
+}
+
+.cours_images{
+	width: 100%;
+	border-radius: 10px;
+}
+
+#comments{
+	margin-top: 30px;
+}
+dt{
+	font-weight: bold;
+	border-bottom: 1px solid #e1e1e1;
+}
+dd{
+	display: block;
+	margin-bottom:30px;
+}
+dt:nth-of-type(even),dd:nth-of-type(even){
+	color: dimgray;
+}
+.button{
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+	
+	text-decoration: none;	
+	height: 33px;
+	padding-top: 7px;
+	margin: 0px 10px;
+}
+#buttons{
+	display: flex;
+	justify-content: center;
+}
+#aucun{
+	width: 300px;
+	color: gray;
+	border: 0.1em solid  gray;
+}
+#commencer{
+	width: 210px;
+	color: limegreen;
+	border: 0.1em solid  limegreen;
+}
+#commencer:hover{
+	color:white;
+	background-color:  limegreen;
+}
+#modifier{
+	width: 100px;
+	color: #ffca35;
+	border: 0.1em solid  #ffca35;
+}
+#modifier:hover{
+	color:white;
+	background-color:  #ffca35;
+}
+
+@media all and (max-width:1024px){
+	section:nth-of-type(2){
+		flex-direction: column;
+		align-content: space-between;
+	}
+	#autre{
+		display: flex;
+		flex-wrap: wrap;
+		height: auto;
+		width: 96%;
+		margin: 10px;
+	}
+	#autre-titre{
+		width: 100%;
+	}
+	.cours_plus{
+		width: 24%;
+	}
+}

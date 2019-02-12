@@ -1,0 +1,349 @@
+/* body css */
+
+body{
+	font-family: "myriad pro";
+
+}
+
+/* header css */
+
+header{
+	background-color: white;
+	display: flex;
+	vertical-align: middle;
+	height: 80px;
+	justify-content: center;
+	align-items: center;
+
+}
+header .icon{
+	text-decoration: none;
+	color: #22313F;
+	display: none;
+}
+.nav{
+	display: block;
+	color:#22313F;
+	font-size: 20px;
+	text-decoration: none;
+	margin-left: 30px;
+}
+.nav:hover{
+	color: #52B3D9;
+	border-bottom: 0.1em solid #52B3D9;
+}
+#inscri-link{
+	width: 100px;
+	color: #52B3D9;
+	text-align: center;
+	padding-top: 6px;
+	border-radius: 10px;
+	height: 30px;
+	border: 2px solid #52B3D9;	
+}
+#conn-link{
+	color: #52B3D9;
+}
+#inscri-link:hover{
+	text-decoration: none;
+	color: white;
+	background-color: #52B3D9;
+}
+#rech-in{
+	width: 400px;
+	margin-left: 30px;
+	font-family: "myriad pro";
+	height: 30px;
+	font-size: 13px;
+	font-size: 13pt;
+	padding-left: 6px;
+	border: 1px solid #1e1a17;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius: 8px;
+	outline-style: none;
+}
+
+
+
+/* first section */
+#ft-sec{
+	color: white;
+	align-items: center;
+	padding: 0;
+	justify-content: flex-end;
+	display: flex;
+	height: 450px;
+	background-color: #52B3D9;
+}
+
+#f-div-ft-sec{
+	margin: 0;
+	flex: 1;
+	padding-left: 40px;
+}
+
+#caractere,#caractere2{
+	height: 450px;
+}
+
+#ft-ft-sec{
+	margin: 0;
+	display: block;
+	font-size: 45px;
+	font-weight:650; 
+}
+#sc-ft-sec{
+	margin:0;
+	display: block;
+	font-size: 40px;
+	font-weight: 100;
+}
+#td-ft-sec{
+	display: block;
+	width: 500px;
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#fr-ft-sec{
+	display: flex;
+}
+
+#inscri-ft-sec,#cours-ft-sec{
+	margin-right: 20px;
+	line-height: 40px; 
+  	display: block;
+	width: 130px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10px;
+	height: 40px;
+	border: 3px solid white;
+	font-size: 24px;
+	font-weight: 650;
+	text-decoration: none;
+}
+#inscri-ft-sec:hover,#cours-ft-sec:hover {
+	text-decoration: none;
+	color: #52B3D9;
+	background-color: white;
+}
+
+/* second section */
+
+#sc-sec{
+	border-top: 2px solid #d8d8d8;
+	height: 600px;
+	background-color: #f1f0f0;
+	
+}
+#titre-sc-sec{
+	margin: 0;
+	padding: 20px 0px 0px 0px;
+	font-size: 30px;
+	display: block;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+#cours{
+	height: 550px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;	
+}
+
+/* third section */
+#td-sec{
+	display: flex;
+	height: 550px;
+	background-color: white;
+	border-top: 1px solid #d8d8d8;
+	align-items: center;
+}
+#s-div-td-sec{
+	font-family: 'Zilla Slab', serif;
+	margin: 30px;
+}
+#titre-td-sec{
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+.td-sous-titre{
+	margin-left: 10px;
+	font-size: 25px;
+	font-weight: bold;
+	height: 35px;
+	display: block;
+}
+.td-text{
+	font-family: "myriad pro";
+	margin: 10px 40px 10px;
+	display: block;
+	font-size: 20px;	
+}
+
+
+@media screen and (max-width:1024px){
+
+	#input_recherche{		
+		display: none;
+	}
+
+	#ft-sec{
+	padding-top :200px;
+	display: flex;
+	flex-direction: column-reverse;
+	height: 900px;
+	background-color: #52B3D9;
+	}
+	#f-div-ft-sec{
+	text-align: center;
+	margin: auto;
+	}
+	#sc-ft-sec{
+	text-align: center;
+	margin:auto;
+	display: block;
+	font-size: 40px;
+	font-weight: 100;
+	}
+	#td-ft-sec{
+	width: 100%;
+	display: block;
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	}
+	#caractere,#caractere2{
+		display: block;
+		margin: auto;
+		height: 800;
+	}
+
+	#fr-ft-sec{
+	display: flex;
+	flex-direction: column;
+	}
+	#inscri-ft-sec,#cours-ft-sec{
+	margin:auto;
+	margin-bottom: 20px;
+	line-height: 40px; 
+  	display: block;
+	width: 130px;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10px;
+	height: 40px;
+	border: 3px solid white;
+	font-size: 24px;
+	font-weight: 650;
+	text-decoration: none;
+	}
+	
+	
+	#sc-sec{
+	border-top: 2px solid #d8d8d8;
+	height: 1900px;
+	background-color: #f1f0f0;
+	}
+	#titre-sc-sec{
+		margin: 0;
+		padding: 20px 0px 0px 0px;
+		font-size: 30px;
+		display: block;
+		width: 100%;
+		height: 50px;
+		text-align: center;
+		font-weight: bold;
+	}
+	#cours{
+		height: 1200px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: auto;
+	}
+	
+	
+	#td-sec{
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	height: auto;
+	border-top: 1px solid #d8d8d8;
+	align-items: center;
+	}
+	#s-div-td-sec{
+		font-family: 'Zilla Slab', serif;
+		margin: 30px;
+	}
+	#titre-td-sec{
+		font-weight: bolder;
+		font-size: 30px;
+	}
+
+	.td-sous-titre{
+		margin-left: 10px;
+		font-size: 25px;
+		font-weight: bold;
+		height: 35px;
+		display: block;
+	}
+	.td-text{
+		font-family: "myriad pro";
+		margin: 10px 40px 10px;
+		display: block;
+		font-size: 20px;	
+	}
+}
+
+@media all and (max-device-width: 480px)
+{
+	#ft-sec{
+	padding: 0;
+	display: flex;
+	flex-direction: column-reverse;
+	height: 1500px;
+	background-color: #52B3D9;
+	}
+	#caractere,#caractere2{
+	width: 80%;
+	height: 80%;
+	}
+	#ft-ft-sec{
+	font-weight: bold;
+	font-size: 80px;
+	}
+	
+	#sc-ft-sec{
+	font-size: 50px;
+	font-weight: normal;
+	}
+
+	#td-ft-sec{
+	font-size: 35px;
+	}
+	#inscri-ft-sec,#cours-ft-sec{
+		font-weight: bold;
+		line-height: 90px; 
+		width: 300px;
+		height: 100px;
+		font-size: 40px;
+		border-radius: 20px;
+	}
+	#titre-td-sec{
+	font-family: 'Zilla Slab' , monospace;
+	font-size: 50px;
+	}
+	.td-sous-titre{
+	font-size: 45px;
+	margin-bottom: 40px;
+		}
+}

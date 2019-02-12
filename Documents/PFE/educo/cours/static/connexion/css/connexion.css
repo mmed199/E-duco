@@ -1,0 +1,111 @@
+#deuxieme-lien{
+	display: inline-block;
+	color: grey;
+	text-decoration: none;
+}
+#deuxieme-lien::after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 1.5px;
+	background:  #52B3D9;
+	transition: width .4s;
+}
+
+#deuxieme-lien:hover::after {
+	width: 100%;
+	//transition: width .3s;
+}
+#mail,#mot-de-passe
+{
+	font-family: monospace; 
+	color: #22313F;
+	font-size: 12pt; 
+	width: 290px; 
+	height: 40px;
+	border: 1px solid grey; 
+	border-radius: 10px;
+	text-align: center;
+	padding-left: 15px;
+	outline: none;
+	background-image:url(../images/email.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	padding-left:7px;
+}
+#mail:focus, #mot-de-passe:focus
+{ 
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+#label-mail,#label-mdp
+{
+	color: #22313F; 
+	font-size: 14pt;  
+	display: block;
+	width: 200px;
+}
+.boutton
+{
+	font-size: 13.9pt; 
+	width: 200px; 
+	height: 38px; 
+	border: 1px solid #52B3D9; 
+	border-radius: 10px;
+	color: white;
+	background-color: #52B3D9;
+	margin-left: 160px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	outline: none;
+}
+#premier-lien
+{
+	text-decoration: none;
+	font-size: 12pt; 
+	padding-left: 123px;
+	color: grey;
+}
+#deuxieme-lien
+{
+	text-decoration: none;
+	font-size: 15.5pt; 
+	margin-left: 180px;
+	color: grey;
+}
+
+h3
+{
+	 
+	font-size: 16.5pt; 
+	padding-bottom: 20px;
+	text-align: center;
+}
+p
+{ 
+	font-size: 15pt; 
+	margin-bottom: 20px;
+	margin-left: 250px;
+}
+#form
+{	
+	margin-top: 50px; 
+	margin-left: auto;
+	margin-right: auto;
+	height: 460px;
+}
+        .erreur
+        {
+            font-size: 10pt;
+            color: red;
+            display: none;
+        }
+
+#form_flex{
+	align-content: center;
+	display: flex;
+	    align-items: center;
+
+}

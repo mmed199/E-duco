@@ -1,0 +1,132 @@
+.card{
+	background-color: white;
+	display: block;
+	flex-direction: column;
+	width: 290px;
+	height: 450px;
+	border-radius: 2px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.img-card{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	width: 290px;
+}
+.titre{
+	font-weight: bold;
+    padding: 5px 10px 0px 10px;
+	font-size: 20px;
+}
+.prix,.prof{
+    padding: 10px 0px 0px 10px;
+	color: gray;
+}
+.text{
+	 padding: 5px 10px 0px 10px;
+	text-align: justify;
+}
+.categorie{ 
+	font-weight: 500;
+}
+
+.card:hover{
+	 transition: all 0.25s ease-in;
+	border-bottom: 0.3em solid #52B3D9;
+	transform: translate3d(0px, -10px, 0px);
+}
+.plus{
+	flex: 1;
+	display: flex;
+	align-items: flex-end;
+}
+.link-plus{
+	padding: 10px 0px 30px 10px;
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+	color: #52B3D9;
+}
+
+
+@media screen and (max-width:1024px){
+	.card{
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		width: 600px;
+		height: 600px;
+		margin-bottom: 20px;
+		border-radius: 2px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+	.img-card{
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		width: 600px;
+		position: absolute;
+		clip: rect(0px,600px,150px,0px);
+		}
+	.titre{
+	font-weight: bold;
+    padding: 140px 0px 0px 10px;
+	font-size: 20px;
+		}
+	.plus{
+	flex: 1;
+	display: block;
+
+	}
+}
+@media screen and (max-width:800px){
+		.card{
+			margin-bottom: 30px;
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+			height: 300px;
+			border-radius: 2px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.img-card{
+			display: none;
+		}
+		.titre{
+			order: 1;
+			font-weight: bold;
+			padding: 10px 10px 0px 10px;
+			font-size: 20px;
+		}
+		.prix{
+			order: 2;
+		}
+		.prof{
+			order: 3;
+
+		}
+		.text{
+			order: 4;
+		}	
+		.plus{
+			order: 5;
+		}	
+	
+}
+@media all and (max-device-width: 480px)
+{
+	.card{
+		width : 80%;
+		}
+}
+@media screen 
+  	and (device-width: 360px) 
+  	and (device-height: 640px)
+  	and (-webkit-min-device-pixel-ratio : 4) 
+  	and (-webkit-device-pixel-ratio : 4)
+	and (orientation: portrait){
+		.cards{
+			height: 400px;
+		}
+
+}

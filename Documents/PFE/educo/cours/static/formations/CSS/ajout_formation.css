@@ -1,0 +1,14 @@
+.lignes{
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+textarea{
+	height: 80px;
+   resize: none;
+}
+.champs{
+	margin-top: 10px;
+}
+input[type='text'],textarea{
+	width: 400px;
+}

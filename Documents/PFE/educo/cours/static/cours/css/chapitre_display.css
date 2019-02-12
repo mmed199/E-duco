@@ -1,0 +1,121 @@
+a{
+	text-decoration: none;
+}
+a:visited{
+	color: rgb(34, 49, 63);
+}
+section:nth-of-type(2){
+	margin: 40px 5em;
+}
+span{
+	display: block;
+}
+#chapitre-formation{
+	padding: 10px;
+	font-size: 2.5em;
+	font-family: 'Zilla slab',serif;
+	font-weight: bold;
+	color: #ffca35;
+	border-bottom: 0.05em solid #ffca35;
+}
+#chapitre-order{
+	font-size: 2em;
+	padding: 10px;
+	margin: 40px 0px;
+	border-bottom: 0.05em solid #f1f1f1;
+}
+#chapitre-description{
+	font-size: 1,2em;
+	padding: 10px;
+	margin: 10px 0px;
+	border-bottom: 0.05em solid #f1f1f1;
+}
+.container {
+    position: relative;
+     width: 100%;
+     height: 0;
+     padding-bottom: 56.25%;
+ }
+ iframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+#chapitre_image{
+	width: 100%;
+	margin-bottom: 40px;
+}
+#chapitre-contenu{
+	margin: 10px;
+	margin-top: 40px;
+}
+#chapitre-fichier{
+	text-align: center;
+	font-weight: bold;
+	text-decoration: underline;
+}
+#flex{
+	display: flex;
+}
+#chapitre{
+	width: 100%;
+}
+#chapitres{
+	
+	margin: 10px;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.07);
+	background-color: white;
+}
+#chapitre_fini{
+	margin: 40px auto;
+	padding-top: 10px;
+	text-align: center;
+	display: block;
+	width: 300px;
+	height: 35px;
+	border-radius: 5px;
+	border : 0.1em solid seagreen;
+	background-color: white;
+	color: seagreen;
+}
+#chapitre_fini:hover{
+	background: seagreen;
+	color: white;
+}
+
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #2098D1;
+  color: white;
+}

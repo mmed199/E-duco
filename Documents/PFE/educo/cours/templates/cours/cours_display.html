@@ -1,0 +1,120 @@
+{% load ratings %}
+{% load static %}
+{% load comments %}
+<html>
+<head>
+	<title>{{cours.formation_libelle}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static "cours/css/cours_display.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "commun/StyleSheet.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "star-ratings/css/star-ratings.css" %}">
+	<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+	</head>
+
+
+<body>
+	<header>
+			<div class="topnav" id="myTopnav">
+			  	<a href="{% url 'index'%}" class="hvr-underline-from-left">Acceuil</a>
+			  	<a href="{% url 'cours'%}" class="hvr-underline-from-left">Cours</a>
+			  	<a href="{% url 'ajout_formation'%}" class="hvr-underline-from-left">Ajouter une formation</a>
+				<a href="#about" class="hvr-underline-from-left" >About</a>
+				{% if user.is_authenticated %}
+				<span id='compte'>
+				<a href="#about" class="hvr-underline-from-left" >
+					<table><tr><td>
+						<img src="{{user.utilisateurs.utilisateur_image.url}}" width="30px" ></td>
+					 <td>{{user.utilisateurs}}</td></tr>
+					</table></a>
+					
+					<table><tr><td><a href="/deconnexion" id='deconnexion' class="hvr-forward">
+						  <img src="https://png.icons8.com/color/50/000000/shutdown.png" width="34px"> 
+						</a></td></tr></table></span>
+				{% else %}
+				<span id="compte">
+				<a href= "{% url 'pre_inscription'%}" class = "hvr-underline-from-left ">S'inscrire</a>
+				<a href= "{% url 'login' %}" class = "hvr-underline-from-left ">Se connecter </a></span>
+				{% endif %}
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+				</div>
+		</header>
+	<section>
+			<form action="{% url 'recherche' %}" method="post" id="recherche-form">
+				<label for='input-recherche'>
+				Cherchez-vous un cours? tapez-le ici : </label>
+ 				{% csrf_token %}
+				{{form.input_recherche}}    <input type="submit" value="Submit" style="display: none">
+				
+			</form>
+	</section>
+	<section>
+	<div id="principale">
+	<div id="cours">
+		<div id="div_image">
+			<img src="{{cours.formation_image.url}}" id="cours_image">
+		</div>
+		<div>
+		<div id="libelle">{{cours.formation_libelle}}</div>
+		<div id="info">
+			<span id="categorie">{{cours.formation_categorie}}</span>
+			<span id="rating"><div>Nombre d'étoiles moyen :</div> {% ratings cours %}
+			</span>
+			<span id="bio">{{cours.formation_bio}}</span>
+			
+			<div id='buttons'>
+			{% if owner %}
+			<a href="{% url 'ajout_chapitre' cours.id %}" id='modifier' class='button'>Modifier</a>
+			{% endif %}
+			
+			{% if no_chapitre%}
+			<a href="#" id='aucun' class='button'>le cours n'a aucun chapitre!</a>
+			{% else %}
+			<a href="{% url 'chapitre_display' id slug premier_chapitre%}" id='commencer' class='button'>Commencer le cours</a>
+			{% endif %}
+				</div>
+		</div>
+		</div>
+			</div>
+
+	<div id="proffeseur">
+		<div id="div_image_utis"><img src="{{cours.formation_utilisateur.utilisateur_image.url}}" id="utilisateur_image">
+			</div>
+		<div>
+			<span id="utilisateur">Proffeseur :</span>
+			<span id="formation_utilisateur">{{cours.formation_utilisateur}}</span>
+			<span id="utis_statu"> <br> Actuellement :{{cours.formation_utilisateur.utilisateur_statu}}</span>
+			<span id="utis_bio">{{cours.formation_utilisateur.utilisateur_bio}}</span>
+		</div>	
+	</div>
+	<div id="commentaire-form">
+		{% render_comment_form for cours %}		</div> 
+		<div id="commentaire-list">
+		{% render_comment_list for cours %}
+		</div>
+
+	</div>
+		
+
+	<div id="autre">
+		<span id="autre-titre">Vous pouvez aimer aussi :</span>
+		{% for cours_plus in plus %}
+		<div class="cours_plus">
+			<a href="{% url 'cours_display' cours_plus.id cours_plus.formation_slug %}">
+			<div>
+				<img src="{{cours_plus.formation_image.url}}" class="cours_images"></div>
+				<div>
+			<p class="cours_libelle">
+				{{cours_plus.formation_libelle|truncatewords:10 }} <i>({{cours_plus.formation_categorie}})</i>
+			</p>
+
+			<p class="cours_prof">
+			Avec : 
+			<span>{{cours_plus.formation_utilisateur}}<br /></span>
+			</p>
+					</div> </a>
+			</div>
+				{% endfor %}
+	
+		</div>
+	</section>
+	</body>	
+</html>

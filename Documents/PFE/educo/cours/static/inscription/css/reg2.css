@@ -1,0 +1,272 @@
+#prenom
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 290px; 
+    height: 40px;
+    border: 1px solid grey; 
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 15px;
+    outline: none;
+    background-image:url(images/Ajout.png);
+    background-position:right;
+    background-repeat:no-repeat;
+    padding-left:7px;
+}
+#prenom:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#niveau
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 11pt; 
+    width: 296px; 
+    height: 43px;
+    border: 1px solid grey; 
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 15px;
+    outline: none;
+}
+#niveau:focus
+{
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#domaine
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 11pt; 
+    width: 296px; 
+    height: 43px;
+    border: 1px solid grey; 
+    border-radius: 10px;
+    text-align: center;
+    padding-left: 15px;
+    outline: none;
+}
+#domaine:focus
+{
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#nom
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 290px; 
+    height: 40px; 
+    border: 1px solid grey;
+    padding-left: 15px; 
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    background-image:url(images/famille2.png);
+    background-position:right;
+    background-repeat:no-repeat;
+    padding-left:7px;
+}
+#nom:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#ville
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 297px; 
+    height: 40px; 
+    border: 1px solid grey;
+    padding-left: 15px; 
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+}
+#ville:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#jours
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 85px; 
+    height: 40px; 
+    border: 1px solid grey;
+    padding-left: 15px; 
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+}
+#jours:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+} 
+#mois
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 110px; 
+    height: 40px; 
+    border: 1px solid grey;
+    padding-left: 15px; 
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+}
+#mois:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#annee
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 12pt; 
+    width: 93px; 
+    height: 40px; 
+    border: 1px solid grey;
+    padding-left: 15px; 
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+}
+#annee:focus 
+{ 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+#label-prenom
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-niveau
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-domaine
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-jours
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-mois
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-annee
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-date
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-ville
+{
+    font-family: monospace;
+    color: #22313F; 
+    font-size: 14pt;  
+    margin-top: 130px;
+}
+#label-nom
+{
+    font-family: monospace; 
+    color: #22313F;
+    font-size: 14pt;
+}
+.boutton
+{
+    font-family: monospace; 
+    font-size: 13.9pt; 
+    width: 200px; 
+    height: 38px; 
+    border: 1px solid #52B3D9; 
+    border-radius: 10px;
+    color: white;
+    background-color: #52B3D9;
+    margin-left: 185px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    outline: none;
+}
+#form
+{
+    margin-top: 60px; 
+    margin-left: 415px;
+    padding-left: 5px;
+    padding-top: 5px;
+    width: 550px;
+    height: 530px;
+    background-color:#fff;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    position: relative;
+}
+h3
+{
+    font-family: monospace; 
+    font-size: 16.5pt; 
+    padding-bottom: 20px;
+    text-align: center;
+}
+table
+{
+    padding-left: 20px;
+}
+.erreur
+{
+    font-family: monospace;
+    font-size: 10pt;
+    color: red;
+    display: none;
+}
+td
+{
+    padding-bottom: 10px;
+}

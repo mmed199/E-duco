@@ -1,0 +1,120 @@
+a , a:active , a:any-link{
+	text-decoration: none;
+}
+
+
+section:nth-of-type(2){
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+section:nth-of-type(2) div{
+	margin: 30px 10px;
+	background-color: #52B3D9;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 1px rgba(0,0,0,.07);
+	text-align: center;
+	padding: 10px 50px;
+	border-bottom: 0.1em solid #52B3D9; 
+
+}
+section:nth-of-type(4){
+	margin: 80px 10px;
+}
+#cours{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+section:nth-of-type(2) div span{
+	display: block;
+}
+section div span:first-of-type{
+	font-weight: bold;
+	font-size: 4em;
+	margin: 0px;	
+}
+
+.cours{
+	display: flex;
+	font-family: "open sans";
+	margin: 5px 20px;
+	border: 1px solid #eeeeee;
+	background-color: white;
+	height: 200px;
+}
+
+section:nth-of-type(3){
+	margin: 2.5% 5%;
+}
+h1{
+	text-align: center;
+}
+h1:nth-of-type(2){
+	 margin-top: 100px;
+}
+.cours div:last-of-type{
+	flex: 1;
+	padding: 20px;
+}
+.cours_images{
+	height: 100%;
+	width: 360px;
+}
+.cours_libelle:visited{
+	color: rgb(34, 49, 63);
+}
+.cours_libelle{
+	color: rgb(34, 49, 63);
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	font-size: 15px;
+	vertical-align: middle;
+	height: 35px;
+}
+
+.cours_prix{
+	
+	font-weight: bold;
+	height: 20px;
+	margin: 2px;
+	font-size: 15px;
+	color: #52B3D9;	
+}
+.lien_visited:hover{
+	text-decoration: underline;
+}
+.lien_visited,.lien_visited:visited{
+	color:#22313F;
+}
+.supprimer,.supprimer:visited{
+	float: right;
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+	width: 100px;
+	color: red;
+	border: 0.1em solid  red;
+	text-decoration: none;	
+	height: 33px;
+	padding-top: 7px;
+	margin: 0px 10px;
+}
+.supprimer:hover{
+	color: white;
+	background-color: red;
+}
+.cours_prof{
+	margin: 0;
+	font-size: 14px;
+}
+
+.mailto{
+	color: dimgrey;
+}
+.mailto:hover{
+	color: #52B3D9;
+}

@@ -1,0 +1,55 @@
+<html>
+<head>
+		{% load static %}
+	<title>educ-o cours</title>
+ 	<link rel="stylesheet" type="text/css" href="{% static "inscription/css/commun.css" %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static "formations/CSS/ajout_formation.css" %}">
+		<link rel="stylesheet" href="{% static "/commun/footer.css" %}">
+	</head>
+	<body>
+		<form method="post" enctype="multipart/form-data" action="{% url "ajout_formation" %}">
+	 				{% csrf_token %}
+			<h3>Ajouter une formation </h3>		
+			<div class = "lignes">
+			<div>
+			<label id="label-mail" for="{{ form.formation_libelle.id_for_label }}">Libelle du Formation:<br></label>
+					<div class="erreur"></div>
+           </div>         
+             <div class="champs">        
+						{{form.formation_libelle }}
+             </div>        
+           	</div>      
+			 
+			<div class = "lignes">
+				<div>	  
+                        <label id="label-mdp" for="{{ form.formation_categorie.id_for_label }}">Categorie: </label>
+                        <div class="erreur"></div>
+            	</div>      
+                <div class="champs">	  
+					 {{form.formation_categorie}}
+		         </div>      
+			</div>
+			<div class = "lignes">
+				<div>
+					<label id="label-conmdp" for="{{ form.formation_bio.id_for_label }}">Description : </label>
+                     <br><div class="erreur"></div>
+                    </div>
+                       
+                    <div class="champs"> 
+						{{form.formation_bio}}
+					 </div>
+		</div> 
+			<div class = "lignes">
+				<div>
+					<label for="{{ form.formation_image.id_for_label }}">image :</label>
+                 </div>   
+                 <div>    
+						{{form.formation_image}}
+					</div>		 
+		</div>
+	
+	
+			<input type="submit" name="prof" value="lancer!" id="envoyer">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+div:first-of-type{
+	padding: 20px;
+	font-size: 25px;
+}
+body{
+	text-align: center;
+}
+#envoyer{
+	margin-left: 0px;
+	margin-top: 30px;
+}

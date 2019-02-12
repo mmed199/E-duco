@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+		{% load static %}
+
+    <title>Login</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.7rc2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "inscription/css/commun.css" %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static "connexion/css/connexion.css" %}">
+
+    <script>
+        $(function(){
+            $('#form').fadeOut('slow', function(){
+				$('#form').fadeIn('slow');
+			});
+        });
+        $(function(){
+            $("#envoyer").click(function(){
+            //Les champs vide
+                valid = true;
+                if($("#mail").val() == "") 
+                {
+                    $("#mail").css("border-color","red");
+                    valid = false;
+                }
+                else 
+                {
+                    $("#mail").css("border-color","green")
+                }
+                //mot-de-passe
+                if ($("#mot-de-passe").val() == "") 
+                {
+                    $("#mot-de-passe").css("border-color","red");
+                    valid = false;
+                }
+                else 
+                {
+                    $("#mot-de-passe").css("border-color","green");
+                } 
+                return valid;
+            });
+        $("#envoyer").click(function(){
+                valid = true;
+
+                //mail required
+                if ($("#mail").val() == "") 
+                {
+                    $("#label-mail").next(".erreur").fadeIn().text("Required champs");
+                    valid = false;
+                }
+                else
+                {
+                    $("#label-mail").next(".erreur").fadeIn().text("");
+                }
+
+                //mdp required
+                if ($("#mot-de-passe").val() == "") 
+                {
+                    $("#label-mdp").next(".erreur").fadeIn().text("Required champs");
+                    valid = false;
+                }
+                return valid;
+            });
+        });
+    </script>
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>    
+        <form id="form" method="post" action="."> 
+			    {% csrf_token %}
+
+                <h3>Se connecter</h3>
+				<div >
+                
+				<div id="form_flex">
+                            <label id="label-mail" for="mail">E-mail :</label>
+                            {{form.username}}</div>
+				<div id="form_flex">
+							<label id="label-mdp" for="mot-de-passe">Mot de passe :</label>
+                            {{form.password}}</div>
+				</div>
+                    <input class="boutton" id="envoyer" type="submit" name="conection" value="Se-connecter">
+                    <hr>
+                    <p>OU</p>
+                    <a id="deuxieme-lien" href="{% url 'pre_inscription'%}">Créer un compte</a>
+        </form>                
+</body>
+</html>

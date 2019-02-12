@@ -1,0 +1,54 @@
+input[type="email"],input[type="password"]{
+            width: 290px; 
+}
+
+#id_in_email{
+       background-image:url(../images/email.png);
+}
+#id_in_mdp,#id_in_re_mdp{
+       background-image:url(../images/cad.png);
+}
+
+#label_mail{
+     margin-top: 130px;
+}
+
+
+.lignes div:first-of-type{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	width: 170px;
+}
+.champs{
+	margin-bottom: 20px;
+}
+.erreur{
+	display: inline;
+	margin: 0px;
+}
+
+input[type="checkbox"]{
+	display: inline;
+	margin-left: 100px;
+	height: 100px;
+}
+select{            
+color: #22313F;
+font-size: 12pt; 
+width: 290px; 
+height: 40px; 
+border: 1px solid grey;
+padding-left: 15px;
+margin-left: 10px;
+border-radius: 10px;
+text-align: center;
+outline: none;
+}
+
+select:focus 
+{ 
+outline: none;
+border-color: #9ecaed;
+box-shadow: 0 0 10px #9ecaed;
+}
+

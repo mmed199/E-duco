@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	
+	
+    <title>S'inscrire</title>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.7rc2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "inscription/jquery/reg.js" %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "inscription/css/commun.css" %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static "inscription/css/verif.css" %}">
+
+</head>
+	
+<body>
+	<form action="{% url 'verification' utis.id  %}" method="post">
+	{% csrf_token %}
+	{{d_user.is_active}}
+	<h3>la derniere étape {{utis.utilisateur_nom}} !</h3>
+	<div> On a envoyer un code de verification a votre email : {{utis.user.email}} , copiez le ici </div>
+	<div>
+		<div>
+		<label for="{{form.in_code.id_for_label}}">Votre code:</label>
+		</div>
+		<div>
+		{{form.in_code}}
+		</div>
+	</div>
+		<input type="submit" value="envoyer" class="hvr-forward">
+	</form>
+</body>	

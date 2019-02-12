@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>Compteprof</title>
+	<meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.7rc2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static "inscription/jquery/comptepro.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "inscription/css/comptepro.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "inscription/css/commun.css" %}">
+
+</head>
+<body >
+	<form action="{% url "utilisateur_inscription" %}" method="post" >
+		{% csrf_token %}
+		<h3>Etape 2 :<br><span id="speciale">(Informations personnelles)</span>{{p}}</h3>
+		
+		<input type="hidden" name="in_email"  id="id_in_email" value = "{{email}}"/>
+		<input type="hidden" name="in_mdp"  id="id_in_mdp" value = "{{mdp}}"/>
+		<input type="hidden" name="in_compte"  id="id_in_compte" value = "{{compte}}"/>
+
+		<div>
+					<div class="lignes-special">
+						<div>
+							<label for="{{form.in_prenom.id_for_label}}">Prènom :</label>
+                        	<div class="erreur">Erreur</div>
+                    	</div>
+						<div >
+							<label id="label-nom" for="{{form.in_nom.id_for_label}}">Nom :</label>
+							<div class="erreur">Erreur</div>
+                  		</div>
+					</div>
+					<div class="lignes-special">
+						<div>
+	                    	{{form.in_prenom}}
+						</div>
+						<div>
+                        {{form.in_nom}}						
+						</div>
+					</div>
+                </div>
+				<div >
+            		<div>
+					<label  for="{{form.in_date_naissance.id_for_label}}">Date de naissance :</label>
+                        <div class="erreur" id="S-error">Erreur</div>
+ 					</div>
+					<div>
+                	{{form.in_date_naissance}}
+					<span>(Vous devez avoir plus 18 ans)</span>
+   					</div>
+				</div>
+            <div>
+			<div >
+			<label for="{{form.in_genre.id_for_label}}">Genre :</label>
+      		</div>
+			<div>
+				{{form.in_genre}}
+				</div>
+			</div>
+			<div>
+			<div>
+			<label for="{{form.in_statu.id_for_label}}">Votre statu :</label>
+      		</div>
+			<div>
+				{{form.in_statu}}
+				</div>
+			</div>
+            <input type="submit" name="suite" value="Suivant"  class="hvr-forward">
+	</form>
+
+</body>
+</html>

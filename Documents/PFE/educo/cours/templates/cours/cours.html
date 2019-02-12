@@ -1,0 +1,155 @@
+<html>
+<head>
+		{% load static %}
+	<title>educ-o cours</title>
+    <link rel="stylesheet" type="text/css" href="{% static "cours/css/cours.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "commun/StyleSheet.css" %}">
+	<link rel="stylesheet" href="{% static "/commun/footer.css" %}">
+	<link rel="stylesheet" href="{% static "/commun/animate.css" %}">
+	<script src="http://code.jquery.com/jquery-1.7rc2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+				$(function() {
+				$('span.quoted').addClass('animated zoomIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+					$(this).removeClass('animated shake');});
+							});
+
+	</script>
+	</head>
+<body >
+	<header>
+			<div class="topnav" id="myTopnav">
+			  	<a href="{% url 'index'%}" class="hvr-underline-from-left">Acceuil</a>
+			  	<a href="{% url 'cours'%}" class="hvr-underline-from-left">Cours</a>
+			  	<a href="{% url 'ajout_formation'%}" class="hvr-underline-from-left">Ajouter une formation</a>
+				<a href="#about" class="hvr-underline-from-left" >Nous Contacter</a>
+				{% if user.is_authenticated %}
+				<span id='compte'>
+				<a href="#about" class="hvr-underline-from-left" >
+					<table><tr><td>
+						<img src="{{user.utilisateurs.utilisateur_image.url}}" width="30px" ></td>
+					 <td>{{user.utilisateurs}}</td></tr>
+					</table></a>
+					
+					<table><tr><td><a href="/deconnexion" id='deconnexion' class="hvr-forward">
+						  <img src="https://png.icons8.com/color/50/000000/shutdown.png" width="34px"> 
+						</a></td></tr></table></span>
+				{% else %}
+				<span id="compte">
+				<a href= "{% url 'pre_inscription'%}" class = "hvr-underline-from-left ">S'inscrire</a>
+				<a href= "{% url 'login' %}" class = "hvr-underline-from-left ">Se connecter </a></span>
+				{% endif %}
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+				</div>
+		</header>
+	
+	<section>
+	<span class="quoted">Le savoir n'a jamais été si proche comme aujourd'hui.</span> 
+	</section>
+	<section>
+			<form action="{% url 'recherche' %}" method="post" id="recherche-form">
+				<label for='input-recherche'>
+				Cherchez-vous un cours? tapez-le ici : </label>
+ 				{% csrf_token %}
+				{{form.input_recherche}}    <input type="submit" value="Submit" style="display: none">
+				
+			</form>
+	</section>
+	<section>
+	<div id="nav-categories">
+		<a href="{% url 'cours' %}" class="categories">Tous</a>
+		{%for categorie in ct%}
+			<a href="{% url 'cours' %}/categories/{{categorie.formation_categorie}}" class="categories">
+			{{categorie.formation_categorie__categorie_nom}}<span class="nombre_categorie"> ({{categorie.count}}) </span></a>
+		{% endfor %}
+		</div>
+	<div id="nav-cours">
+			{%for cours in cr %}
+		
+			<div class="cours">
+			<div>
+				<img src="{{cours.formation_image.url}}" class="cours_images"></div>
+				<div>
+			<p class="cours_libelle">
+				<a href="{% url 'cours_display' cours.id cours.formation_slug %}">{{cours.formation_libelle|truncatewords:10 }} <i>({{cours.formation_categorie}})</i> </a>
+			</p>
+			<p class="cours_prix">
+				Moyen d'étoiles: {{cours.ratings.get.average|floatformat:"-1"}}/5  
+			</p>
+			<p class="cours_bio">
+			{{cours.formation_bio|truncatewords:25}}
+			</p>
+			<p class="cours_prof">
+			par:<br />
+			<span>{{cours.formation_utilisateur}}<br /></span>
+				<a href="mailto:{{cours.formation_utilisateur.utilisateur_email}}?Subject=Educo%20cours" target="_top" class="mailto"><span>{{cours.formation_utilisateur.user.email}} </span></a>
+			</p>
+					</div>
+			</div>
+		
+		{% endfor %}
+		</div>
+	</section>
+				<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Company<span>logo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					·
+					<a href="#">Blog</a>
+					·
+					<a href="#">Pricing</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="#">Faq</a>
+					·
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Company Name &copy; 2015</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>21 Revolution Street</span> Paris, France</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+1 555 123456</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer> 
+	</body>
+</html>

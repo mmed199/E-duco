@@ -1,0 +1,28 @@
+<html>
+<head>
+{% load static %}
+	<title>Supprimer</title>
+	<link rel="stylesheet" type="text/css" href="{% static "commun/etes-vous-sur.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "commun/StyleSheet.css" %}">
+</head>
+<body>
+	
+	<div id='block_message'>
+	
+	{{message}}
+		
+	<div>
+	{% if next == 'chapitre'%}
+	<a href="{% url 'ajout_chapitre' formation_id %}">Non</a> 
+	  
+	<a href="{% url 'supprimer_chapitre' id formation_id 1%}">Oui</a>
+		
+	{% elif next == 'formation'%}
+	<a href="{% url 'index'  %}">Non</a> 
+	  
+	<a href="{% url 'supprimer_formation' id 1%}">Oui</a>
+		{% endif %}
+		</div>
+	</div>
+	</body>
+</html>

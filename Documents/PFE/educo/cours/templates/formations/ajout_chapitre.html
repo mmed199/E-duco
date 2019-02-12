@@ -1,0 +1,107 @@
+<html>
+<head>
+		{% load static %}
+	<title>Chapitres | educ-o</title>
+ 	<link rel="stylesheet" type="text/css" href="{% static "commun/StyleSheet.css" %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static "formations/CSS/ajout_chapitre.css" %}">
+
+	<script>
+	function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+	</script>
+	</head>
+	<body>
+		<header>
+			<div class="topnav" id="myTopnav">
+			  <a href="{% url 'index'%}" class="hvr-underline-from-left">Acceuil</a>
+			  <a href="{% url 'cours'%}" class="hvr-underline-from-left">Cours</a>
+			  <a href="{% url 'ajout_formation'%}" class="hvr-underline-from-left">Ajouter une formation</a>
+			  <a href="#about" class="hvr-underline-from-left" >About</a>
+			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+				</div>
+		</header>
+		<div id='formation'>
+			<h1>Formation:</h1>
+			<div id='formation_titre'>
+		{{formation}} <i>({{formation.formation_categorie}})</i>
+			</div>
+			<div id='formation_bio'>
+			{{formation.formation_bio}}
+			</div>
+		</div>
+		<div>
+			<h1 id="chapitres-titre">les chapitres:</h1>
+		{% for chapitre in chapitres%}
+		<div class='chapitre'>
+			<div class='chapitre-ordre'>{{chapitre.order}}</div>
+			<div>
+			<div class='chapitre_titre'><strong>
+		{{chapitre.titre}} </strong></div>
+		<div class='chapitre_description'> <b>Description: </b> {{chapitre.description|truncatewords:20}}</div>
+		
+		<div class='chapitre_description'> <b>Contenu: </b> {{chapitre.contenu|truncatewords:40}}</div>
+		
+		<div>
+		<b>Image? :</b> 
+		{% if chapitre.image%}
+		Oui, vous avez ajouter une image pour ce chapitre
+		{% else %}
+		Non, 
+		{%endif%} <br>
+		<b>Fichier? :</b> 
+		 
+		{% if chapitre.image%}
+		Oui, vous avez ajouter un fichier pour ce chapitre
+		{% else %}
+		Non, vous n'avez pas ajouter un fichier pour ce chapitre 
+		{%endif%}
+		</div>
+				<div class='supprimer hvr-sweep-to-right'><a href='{% url 'supprimer_chapitre' chapitre.id chapitre.course.id 0 %}'>Supprimer</a></div>
+				</div>
+		</div>
+		{% endfor %}
+		</div>
+		<h1 id='form_titre'> Ajouter un chapitre:</h1>
+		 	<form action="{% url 'ajout_chapitre' formation.id%}" method="post" enctype="multipart/form-data" >    
+				
+		 				{% csrf_token %}
+			<div class='form_divs'>
+				<div>
+			<label for='id_titre'>titre:</label><br><span class=''>ajouter un titre clair et attirant</span>
+				</div>
+				<div>{{form.titre}}</div> 
+			
+				</div>
+			<div class='form_divs'>
+			<div>
+			<label for='id_titre'>Video :</label><br><span class=''>ajouter un URL d'un youtube video</span>
+				</div>
+				<div>{{form.url}}</div> 
+			<div>
+			<label for='id_image'>image:</label><br><span class=''>taille 16:9</span></div>
+				<div>{{form.image}}</div>
+				<div>
+			<label for='id_fichier'>fichier:</label><br><span class=''>(pdf, video ...)</span></div>
+				<div>{{form.fichier}}</div>
+				</div>
+			
+			<div class='form_divs'>
+			<div>
+			<label for='id_description'>description:</label><br><span class=''>une petite introduction</span>
+				</div>
+				<div>{{form.description}}</div> 
+			<div>
+						<label for='id_contenu'>Contenu:</label><br><span class=''>le contenu du chapitre</span>
+				</div>
+				<div>{{form.contenu}}</div> 
+				</div>
+							<input type="submit"  value="Ajouter" id="envoyer" class="hvr-grow-rotate">
+		</form>
+	</body>
+</html>

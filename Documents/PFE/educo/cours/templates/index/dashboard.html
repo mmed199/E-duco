@@ -1,0 +1,220 @@
+<html>
+<head>
+		{% load static %}
+	<title>{{user.utilisateurs}}</title>
+ 	<link rel="stylesheet" type="text/css" href="{% static "commun/StyleSheet.css" %}">
+ 	<link rel="stylesheet" type="text/css" href="{% static "commun/footer.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "index/css/dashboard.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "index/css/cards-dashboard.css" %}">
+	<script>
+	function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+	</script>
+	</head>
+	<body>
+		<header>
+			<div class="topnav" id="myTopnav">
+			  	<a href="{% url 'index'%}" class="hvr-underline-from-left">Acceuil</a>
+			  	<a href="{% url 'cours'%}" class="hvr-underline-from-left">Cours</a>
+			  	<a href="{% url 'ajout_formation'%}" class="hvr-underline-from-left">Ajouter une formation</a>
+				<a href="#about" class="hvr-underline-from-left" >About</a>
+				<span id='compte'>
+				<a href="#about" class="hvr-underline-from-left" >
+					<table><tr><td>
+						<img src="{{user.utilisateurs.utilisateur_image.url}}" width="30px" ></td>
+					 <td>{{user.utilisateurs}}</td></tr>
+					</table></a>
+					
+					<table><tr><td><a href="{% url 'logout'%}" id='deconnexion' class="hvr-forward">
+						  <img src="https://png.icons8.com/color/50/000000/shutdown.png" width="34px"> 
+						</a></td></tr></table></span>
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+				</div>
+		</header>
+			<section>
+			<form action="{% url 'recherche' %}" method="post" id="recherche-form">
+				<label for='input-recherche'>
+				Cherchez-vous un cours? tapez-le ici : </label>
+ 				{% csrf_token %}
+				{{form.input_recherche}}    <input type="submit" value="Submit" style="display: none">
+				
+			</form>
+	</section>
+	<section>
+		<div>
+		<span>{{tous}}</span>
+		<span>formations suivis</span>
+		</div>
+		<div>
+		<span>{{fini}}</span>
+		<span>formations finis</span>
+		</div>
+		<div>
+		<span>{{a|floatformat}}%</span>
+		<span>moyenne d'achèvement</span>
+		</div>
+		</section>
+	<section>
+
+		<h1>les formation suivis :</h1>
+		<div>
+			
+		
+		{%for cours in formations %}
+		
+			<div class="cours">
+			<div>
+				<img src="{{cours.formation.formation_image.url}}" class="cours_images"></div>
+				<div>
+			<p class="cours_libelle">
+				<a href="{% url 'chapitre_display' cours.formation.id cours.formation.formation_slug cours.chapitre.order%}" class="lien_visited">{{cours.formation.formation_libelle|truncatewords:10 }} 
+					{% if cours.fini%}
+					<b style='color:limegreen'>(fini)</b>
+					{% endif %} 
+					<i>({{cours.formation.formation_categorie}})</i> </a>
+			</p>
+			
+			<p class="cours_prix">
+				Moyen d'étoiles: {{cours.formation.ratings.get.average|floatformat:"-1"}}/5  
+			</p>
+			<p class="cours_prof">
+			Chapitre : <b>{{cours.chapitre.titre}} </b><br><br>
+			par:<br />
+			{{cours.formation.formation_utilisateur}}<br />
+				<a href="mailto:{{cours.formation_utilisateur.utilisateur_email}}?Subject=Educo%20cours" target="_top" class="mailto">{{cours.formation.formation_utilisateur.user.email}} </a>
+			</p>
+					</div>
+			</div>
+			{% empty %}
+			<h5 style='text-align: center'>Allez aux cours et commencez une formation!</h5>
+			{% endfor %}
+		
+		
+			
+		</div>
+		
+		<h1 >Vos formations:</h1>
+		<div>
+		{%for formation in vos_formations %}
+		
+			<div class="cours">
+			<div>
+				<img src="{{formation.formation_image.url}}" class="cours_images"></div>
+				<div>
+			<p class="cours_libelle">
+				<a href="{% url 'cours_display' formation.id formation.formation_slug %}" class="lien_visited">{{formation.formation_libelle|truncatewords:10 }} 
+					<i>({{formation.formation_categorie}})</i> </a>
+			</p>
+			
+			<p class="cours_prix">
+				Moyen d'étoiles: {{formation.ratings.get.average|floatformat:"-1"}}/5  
+			</p>
+			<p class="cours_prof">
+			par:<br />
+			{{formation.formation_utilisateur}}<br />
+				<a href="mailto:{{cours.formation_utilisateur.utilisateur_email}}?Subject=Educo%20cours" target="_top" class="mailto">{{formation.formation_utilisateur.user.email}} </a>
+			</p>
+					<a href = "{% url 'supprimer_formation' formation.id 0%}" class="supprimer" >Supprimer</a>
+					</div>
+			</div>
+			{% empty %}
+			<h5 style='text-align: center'>vous n'avez pas lenacer une formation</h5>
+			{% endfor %}</div>
+		
+		</section>
+		<section id="sc-sec">		
+		<h1>les meilleurs formations:</h1>
+		<div id="cours">
+		{% for c in cr %}
+		<div class="card">
+		<div class="img">
+		<img src="{{c.formation_image.url}}" class="img-card"> 	
+		</div>
+		
+		<div class="prix">
+				Moyen d'étoiles: {{c.ratings.get.average|floatformat:"-1"}}/5		</div>
+		
+		<div class="titre">
+		<a href="{% url 'cours_display' c.id c.formation_slug%}">{{ c.formation_libelle }}</a>
+		</div>
+		<div class="prof">
+			{{c.formation_proffeseur}} 
+		</div>
+		<div class="text categorie">
+			{{c.formation_categorie}}
+		</div>
+		<div class="text">
+			<br>
+			{{c.formation_bio|truncatewords:20}} 
+		</div>
+		
+			</div>
+		{% endfor %}
+
+		</div>
+		</section>
+					<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Company<span>logo</span></h3>
+
+				<p class="footer-links">
+					<a href="#">aceuil</a>
+					·
+					<a href="{% url 'cours' %}">cours</a>
+					·
+					<a href="#">About</a>
+					·
+					<a href="mailto:educo.donotreply@gmail.com">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Educ-o &copy; 2018</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span> BP 473 Complexe universitaire Al Qods, </span> Oujda 60000</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+212 536 36 36 36</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:educo.donotreply@gmail.com">Educ-o support</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>nous?</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+	</body>
+</html>

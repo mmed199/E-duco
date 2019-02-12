@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        body{
+			font-family: monospace;
+			background-color: aliceblue;
+        }
+		p{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 25px;
+			width: 300px;
+			text-align: center;
+		}
+		#code{
+			color : orangered;
+			display: block;
+			margin: auto;
+			width: 80px;
+			height: 35px;
+			font-size: 30px;
+			border: 3px solid black;
+			border-radius: 2px;
+			margin-top: 20px;
+			margin-bottom: 40px;
+		}
+		#user{
+			font-weight: bold;
+		}
+		#footer{
+			
+			color : skyblue;
+			font-size: 20px;
+			
+		}
+    </style>
+</head>
+<body>
+            <p>
+                {% autoescape off %}
+				Hi <span id="user">{{ user.utilisateur_nom }} {{ user.utilisateur_prenom }}</span>,
+				This is your activation code :
+				<span id="code">{{code}}</span>
+				{% endautoescape %}
+						<span id = "footer">l'equipe Educ-o cordialement</span>
+
+            </p>
+</body>
+</html>
