@@ -1,0 +1,56 @@
+input[type="text"]{
+	width: 240px; 
+}
+#nom
+{  
+background-image:url(../images/famille2.png);
+}
+	
+#prenom
+{
+	background-image:url(../images/Ajout.png);
+
+}
+.erreur
+{             
+	font-size: 10pt;
+	color: red;
+	display: none;
+}
+.lignes-special{
+	display: flex;
+}
+.lignes-special div:first-of-type{
+	width: 300px;
+}
+
+select{            
+color: #22313F;
+font-size: 12pt; 
+width: 85px; 
+height: 40px; 
+border: 1px solid grey;
+padding-left: 15px;
+margin-left: 10px;
+border-radius: 10px;
+text-align: center;
+outline: none;
+}
+
+select:focus 
+{ 
+outline: none;
+border-color: #9ecaed;
+box-shadow: 0 0 10px #9ecaed;
+}
+span{ 
+	display: block;
+	color: #22313F; 
+	font-size: 9pt; }
+div{
+	text-align: center;
+	margin-bottom: 5px;
+}
+#id_in_genre{
+	width: 100px;
+}

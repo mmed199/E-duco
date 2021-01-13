@@ -1,0 +1,106 @@
+body{
+	background-color: #52B3D9;
+	font-family: monospace;
+}
+form
+{
+	margin-top: 50px; 
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	width: 500px;
+	height: 550px;
+	background-color:#fff;
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+}
+input[type="submit"]
+{
+	font-family: monospace; 
+	font-size: 13.9pt; 
+	width: 200px; 
+	height: 38px; 
+	border: 1px solid #52B3D9; 
+	border-radius: 10px;
+	color: white;
+	background-color: #52B3D9;
+	margin-left: 160px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	outline: none;
+	display:inline-block;
+        }
+input[type="submit"]:hover
+{
+	background-color: #337ab7;
+	border: 1px solid #337ab7;
+}
+h3{
+	font-size: 30px; 
+	padding-bottom: 10px;
+    text-align: center;
+}
+
+.lignes{
+	display: flex;
+	align-items: center;
+}
+
+label{
+     color: #22313F; 
+     font-size: 14pt; 
+}
+
+input[type="text"],input[type="email"],input[type="password"],input[type="checkbox"],
+input[type="number"],select,textarea{
+	color: #22313F;
+	margin: 2px;
+	font-size: 12pt; 
+	border: 1px solid grey;
+	padding-left: 15px; 
+	border-radius: 10px;
+	text-align: center;
+	outline: none;
+	background-position:right;
+	background-repeat:no-repeat;
+	padding-left:7px;
+}
+input[type="text"],input[type="email"],input[type="password"],input[type="checkbox"],
+input[type="number"],select{
+		height: 40px; 
+}
+
+
+input[type="text"]:focus, select:focus,textarea:focus{
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+
+/*
+form{
+	padding: 5px;
+    width: 500px;
+    height: 550px;
+    background-color:#fff;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+*/

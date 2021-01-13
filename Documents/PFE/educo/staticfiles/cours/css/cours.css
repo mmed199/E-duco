@@ -1,0 +1,147 @@
+a{
+	color: inherit;
+	text-decoration: none;
+}
+section:first-of-type{
+	height: 250px;
+	background-image: url(../images/summer-office-student-work.jpg);
+    background-attachment: fixed;
+	background-size: cover;
+    background-repeat: no-repeat;
+	margin: 0px;
+}
+
+section:first-of-type span{
+	display: block;
+	padding: 100px 20px;
+	font-family: 'Zilla Slab';
+	letter-spacing: 2px;
+	color: white;
+	font-size: 35px;
+	font-weight: 600;
+	text-align: center;
+	vertical-align: middle;
+}
+section:nth-of-type(2){
+	background-color: #f1f1fa;
+	padding: 40px;
+}
+section:nth-of-type(3){
+	display: flex;
+	padding: 20px;
+	background-color: #f7f7f7;
+}
+
+#nav-categories{
+	padding-top: 20px;
+	width: 200px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+#nav-cours{
+	margin: 10px;
+	flex: 1;
+}
+.categories{
+	display: block;
+	width: 100%;
+	text-align: left;
+	color: #22313F;
+	font-size: 18px;
+}
+.categories:hover{
+	text-decoration: underline;
+}
+.nombre_categorie{
+	color : #aaaaaa;
+}
+.cours{
+	display: flex;
+	font-family: "open sans";
+	margin: 5px 20px;
+	border: 1px solid #eeeeee;
+	background-color: white;
+	height: 200px;
+}
+
+
+
+
+.cours div:last-of-type{
+	flex: 1;
+	padding: 20px;
+}
+.cours_images{
+	height: 100%;
+	width: 360px;
+}
+
+.cours_libelle{
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	font-size: 15px;
+	vertical-align: middle;
+	height: 35px;
+}
+
+.cours_prix{
+	
+	font-weight: bold;
+	height: 20px;
+	margin: 2px;
+	font-size: 15px;
+	color: #52B3D9;	
+}
+
+.cours_bio{
+	
+	height: 50px;
+	margin: 0;
+	font-size: 13px;
+}
+
+.cours_prof{
+	margin: 0;
+	font-size: 14px;
+}
+
+.mailto{
+	color: dimgrey;
+}
+.mailto:hover{
+	color: #52B3D9;
+}
+
+
+
+@media all and (max-width:1024px) {
+	section:nth-of-type(3){
+		flex-direction: column;
+		padding: 10px;
+	}
+	#nav-categories{
+		flex-direction: row;
+		width: 100%;
+	}
+	.categories{
+		display: block;
+		width: 210px;
+		text-align: left;
+		color: #22313F;
+		font-size: 18px;
+	}
+	.categories:first-of-type{
+		width: 80px;
+	}
+	.cours{
+		display: flex;
+		font-family: "open sans";
+		margin: 5px 0px;
+		border: 1px solid #eeeeee;
+		background-color: white;
+		height: 200px;
+	}
+}

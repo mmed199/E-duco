@@ -1,0 +1,171 @@
+        #form
+        {
+            margin-top: 25px; 
+            margin-left: 400px;
+            padding-left: 15px;
+            padding-top: 25px;
+            width: 550px;
+            height: 580px;
+            background-color:#fff;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+        }
+        h3
+        {
+            font-family: monospace; 
+            font-size: 16.5pt; 
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        #speciale
+        {
+            font-family: monospace;
+            text-align: center;
+            color: white; 
+            font-size: 15pt;
+            background-color: grey;
+            width: 500px;
+            padding-left: 35px;
+            padding-top: 10px;
+        }
+        #label-poste
+        {
+            font-family: monospace;
+            color: #22313F; 
+            font-size: 14pt;  
+            margin-top: 130px;
+        }
+        #poste
+        {
+            font-family: monospace; 
+            color: #22313F;
+            font-size: 11pt; 
+            width: 255px; 
+            height: 44px;
+            border: 1px solid grey; 
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 15px;
+            outline: none;
+        }
+        #poste:focus
+        {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+        #label-employeur
+        {
+            font-family: monospace;
+            color: #22313F; 
+            font-size: 14pt;  
+            margin-top: 130px;
+        }
+        #employeur
+        {
+            font-family: monospace; 
+            color: #22313F;
+            font-size: 11pt; 
+            width: 255px; 
+            height: 44px;
+            border: 1px solid grey; 
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 15px;
+            outline: none;
+        }
+        #employeur:focus
+        {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+        #label-ecole
+        {
+            font-family: monospace;
+            color: #22313F; 
+            font-size: 14pt;  
+            margin-top: 130px;
+        }
+        #ecole
+        {
+            font-family: monospace; 
+            color: #22313F;
+            font-size: 11pt; 
+            width: 255px; 
+            height: 44px;
+            border: 1px solid grey; 
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 15px;
+            outline: none;
+        }
+        #ecole:focus
+        {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+        #label-formation
+        {
+            font-family: monospace;
+            color: #22313F; 
+            font-size: 14pt;  
+            margin-top: 130px;
+        }
+        #formation
+        {
+            font-family: monospace; 
+            color: #22313F;
+            font-size: 11pt; 
+            width: 255px; 
+            height: 44px;
+            border: 1px solid grey; 
+            border-radius: 10px;
+            text-align: center;
+            padding-left: 15px;
+            outline: none;
+        }
+        #formation:focus
+        {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+          .boutton
+        {
+            font-family: monospace; 
+            font-size: 13.9pt; 
+            width: 250px; 
+            height: 38px; 
+            border: 1px solid #52B3D9; 
+            border-radius: 10px;
+            color: white;
+            background-color: #52B3D9;
+            margin-left: 150px;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        span
+        {
+            font-family: monospace;
+            color: #22313F; 
+            font-size: 9pt;  
+        }
+        .erreur
+        {
+            font-family: monospace;
+            font-size: 10pt;
+            color: red;
+            display: none;
+        }
+        #speciale-td
+        {
+            padding-left: 30px;
+        }
+        body
+        {
+            background-color: #52B3D9;
+        }

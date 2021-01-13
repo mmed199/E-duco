@@ -36,9 +36,9 @@ urlpatterns = [
     path('cours/recherche/<str:recherche>',views.cours_recherche, name = 'cours_recherche'),
     path('<int:id>/<slug:slug>',views.cours_display, name = 'cours_display'),
     path('<int:id>/<slug:slug>/<int:order>',views.chapitre_display, name = 'chapitre_display'),
-    url(r'^connexion/$', auth_views.login, {'template_name': 'connexion/login.html'}, name='login'),
+    url(r'^connexion/$', auth_views.LoginView.as_view(template_name = "connexion/login.html"), name='login'),
 
-    url(r'^deconnexion/$', auth_views.logout, name='logout' )
+    url(r'^deconnexion/$', auth_views.LogoutView.as_view(), name='logout' )
    # path('connexion', views.login, name='login'),
 ]
 

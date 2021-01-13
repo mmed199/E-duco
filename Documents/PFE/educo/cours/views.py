@@ -9,7 +9,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.utils.html import strip_tags
 from random import randint
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as dj_login
 from django.http import HttpResponseRedirect
 from itertools import chain
 # Create your views here.
@@ -20,7 +20,7 @@ def index(request):
     form = rechercheForm(request.POST)
     if not request.user.is_authenticated :
         cr = Formations.objects.filter(ratings__isnull=False).order_by('-ratings__average')[:3]
-        return render(request, 'index\index.html' , {'cours' : cr,'form' : form})
+        return render(request, 'index/index.html' , {'cours' : cr,'form' : form})
     else :
         formations = FormationsSuivis.objects.filter(utilisateur = request.user.utilisateurs)
         vos_formations = Formations.objects.filter(formation_utilisateur = request.user.utilisateurs)
@@ -125,7 +125,7 @@ def utilisateur_inscription(request):
         )
 
         email.attach_alternative(message , "text/html")
-        email.send()
+        #email.send()
         
         return redirect('verification/{}'.format(utis.id))
     
@@ -266,7 +266,7 @@ def login(request):
 
             user = authenticate(username=username, password=password)  # Nous vérifions si les données sont correctes
             if user:  # Si l'objet renvoyé n'est pas None
-                django.contrib.auth.login(request, user)  # nous connectons l'utilisateur
+                dj_login(request, user)  # nous connectons l'utilisateur
                 #return redirect('../inscription')
             else: # sinon une erreur sera affichée
                 error = True
